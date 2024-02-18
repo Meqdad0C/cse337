@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "org.meqdad"
+group = "org.sw.testing"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -10,8 +10,16 @@ repositories {
 }
 
 dependencies {
+    implementation("com.google.guava:guava:33.0.0-jre")
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "org.project.Main"
+    }
+    from(configurations.runtimeClasspath.get().filter { it.exists() }.map { if (it.isDirectory) it else zipTree(it) })
 }
 
 tasks.test {
