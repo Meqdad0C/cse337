@@ -17,10 +17,8 @@
     │   │   ├───one
     │   │   ├───two
     │   │   └───...
+    │   ├───project
     │   └───labs
-    │       ├───one
-    │       └───...
-    │   
     └───test
         ├───java
         └───resources
