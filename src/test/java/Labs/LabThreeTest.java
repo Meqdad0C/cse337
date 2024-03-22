@@ -14,15 +14,15 @@ public class LabThreeTest {
     @Test
     public void FileHandler_SetFilePath_Test(){
         FileHandler fileHandler = new FileHandler();
-        fileHandler.SetFilePath("C:\\Users\\Documents\\SW Testing\\cse337\\src\\main\\java\\org\\labs\\Three\\numbers.txt");
+        fileHandler.SetFilePath("./src/main/java/org/labs/Three/numbers.txt");
 
-        Assertions.assertEquals("C:\\Users\\Documents\\SW Testing\\cse337\\src\\main\\java\\org\\labs\\Three\\numbers.txt",fileHandler.filePath);
+        Assertions.assertEquals("./src/main/java/org/labs/Three/numbers.txt",fileHandler.filePath);
     }
 
     @Test
     public void FileHandler_GetData_Test() throws IOException {
         FileHandler fileHandler = new FileHandler();
-        fileHandler.filePath = "C:\\Users\\stc\\numbers.txt"; // Change this path according to location of the file
+        fileHandler.filePath = "./src/main/java/org/labs/Three/numbers.txt"; // Change this path according to location of the file
         Vector<Integer> actual = fileHandler.GetData();
 
         Vector<Integer> expected = new Vector<>();
