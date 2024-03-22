@@ -1,4 +1,4 @@
-package org.example;
+package org.labs.one;
 
 import java.util.Arrays;
 import java.util.Comparator;

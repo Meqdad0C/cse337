@@ -1,6 +1,8 @@
+package Labs;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.example.Solution;
+import org.labs.one.*;
 
 
 class LabOneTest {
