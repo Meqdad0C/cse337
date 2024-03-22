@@ -16,11 +16,11 @@ public class LabThreeTest {
         FileHandler fileHandler = new FileHandler();
         fileHandler.SetFilePath("./src/main/java/org/labs/Three/numbers.txt");
 
-        Assertions.assertEquals("./src/main/java/org/labs/Three/numbers.txt",fileHandler.filePath);
+        Assertions.assertEquals("./src/main/java/org/labs/Three/numbers.txt",fileHandler.filePath, "expecting pass");
     }
 
     @Test
-    public void FileHandler_GetData_Test() throws IOException {
+    public void FileHandler_GetData_Test1() throws IOException {
         FileHandler fileHandler = new FileHandler();
         fileHandler.filePath = "./src/main/java/org/labs/Three/numbers.txt"; // Change this path according to location of the file
         Vector<Integer> actual = fileHandler.GetData();
@@ -34,6 +34,43 @@ public class LabThreeTest {
         expected.add(4);
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void FileHandler_GetData_Test2() throws IOException {
+        FileHandler fileHandler = new FileHandler();
+        fileHandler.filePath = "./src/main/java/org/labs/Three/numbers2.txt"; // Change this path according to location of the file
+        Vector<Integer> actual = fileHandler.GetData();
+
+        Vector<Integer> expected = new Vector<>();
+
+        expected.add(12);
+        expected.add(31);
+        expected.add(45);
+        expected.add(121);
+        expected.add(4);
+
+        Assertions.assertEquals(expected, actual, "expected fail as this file the wrong file" +
+                " not the file we want");
+    }
+
+    @Test
+    public void FileHandler_GetData_Test3() throws IOException {
+        FileHandler fileHandler = new FileHandler();
+        //this test case to test if case sensitivity is verified or not
+        fileHandler.filePath = "./src/main/java/org/labs/Three/Numbers.txt"; // Change this path according to location of the file
+        Vector<Integer> actual = fileHandler.GetData();
+
+        Vector<Integer> expected = new Vector<>();
+
+        expected.add(12);
+        expected.add(31);
+        expected.add(45);
+        expected.add(121);
+        expected.add(4);
+
+        Assertions.assertEquals(expected, actual, "expected to throw error file not found " +
+                "as the expected file is numbers.txt not Numbers.txt");
     }
 
     @Test
@@ -130,8 +167,8 @@ public class LabThreeTest {
         when(fileHandler.GetData()).thenReturn(numbers);
 
         DataAnalyzer da = new DataAnalyzer(fileHandler);
-        int maxValue =  da.GetMax();
-        Assertions.assertEquals(20, maxValue);
+        int minValue =  da.GetMin();
+        Assertions.assertEquals(20, minValue);
     }
     @Test
     public void DataAnalyzerTest_GetMax1_oneElement() throws IOException {
@@ -144,8 +181,8 @@ public class LabThreeTest {
         when(fileHandler.GetData()).thenReturn(numbers);
 
         DataAnalyzer da = new DataAnalyzer(fileHandler);
-        int minValue =  da.GetMin();
-        Assertions.assertEquals(20, minValue);
+        int maxValue =  da.GetMax();
+        Assertions.assertEquals(20, maxValue);
     }
     @Test
     public void DataAnalyzerTest_GetMax2() throws IOException {
@@ -231,7 +268,7 @@ public class LabThreeTest {
     }
 
     @Test
-    public void DataAnalyzertest_GetAverage1_zero() throws IOException{
+    public void DataAnalyzerTest_GetAverage1_zero() throws IOException{
         FileHandler fileHandler = mock(FileHandler.class);
 
         Vector<Integer> numbers = new Vector<>();
@@ -247,7 +284,7 @@ public class LabThreeTest {
 
     }
     @Test
-    public void DataAnalyzertest_GetAverage2() throws IOException{
+    public void DataAnalyzerTest_GetAverage2() throws IOException{
         FileHandler fileHandler = mock(FileHandler.class);
 
         Vector<Integer> numbers = new Vector<>();
@@ -263,7 +300,7 @@ public class LabThreeTest {
 
     }
     @Test
-    public void DataAnalyzertest_GetAverage3() throws IOException{
+    public void DataAnalyzerTest_GetAverage3() throws IOException{
         FileHandler fileHandler = mock(FileHandler.class);
 
         Vector<Integer> numbers = new Vector<>();
@@ -280,7 +317,7 @@ public class LabThreeTest {
     }
 
     @Test
-    public void DataAnalyzertest_GetAverage4_negatives() throws IOException{
+    public void DataAnalyzerTest_GetAverage4_negatives1() throws IOException{
         FileHandler fileHandler = mock(FileHandler.class);
 
         Vector<Integer> numbers = new Vector<>();
@@ -295,8 +332,29 @@ public class LabThreeTest {
         Assertions.assertEquals(-2, avgValue);
 
     }
+
     @Test
-    public void DataAnalyzertest_GetAverage5() throws IOException{
+    public void DataAnalyzerTest_GetAverage4_negatives2() throws IOException{
+        /*this test case to check if getAverage function is ceiling, flooring, rounding or just returning Integer
+        if it is flooring rather than returning Integer therefore if we enter -1, -3, -4
+        the expected is -2 but the actual will be -3 as flooring for -2.667 is -3*/
+
+        FileHandler fileHandler = mock(FileHandler.class);
+
+        Vector<Integer> numbers = new Vector<>();
+        numbers.add(-1);
+        numbers.add(-3);
+        numbers.add(-4);
+
+        when(fileHandler.GetData()).thenReturn(numbers);
+
+        DataAnalyzer da = new DataAnalyzer(fileHandler);
+        int avgValue =  da.GetAverage();
+        Assertions.assertEquals(-2, avgValue);
+
+    }
+    @Test
+    public void DataAnalyzerTest_GetAverage5() throws IOException{
         FileHandler fileHandler = mock(FileHandler.class);
 
         Vector<Integer> numbers = new Vector<>();
@@ -313,7 +371,7 @@ public class LabThreeTest {
     }
 
     @Test
-    public void DataAnalyzertest_GetAverage6() throws IOException{
+    public void DataAnalyzerTest_GetAverage6() throws IOException{
         FileHandler fileHandler = mock(FileHandler.class);
 
         Vector<Integer> numbers = new Vector<>();
