@@ -50,7 +50,7 @@ public class LabThreeTest {
         expected.add(121);
         expected.add(4);
 
-        Assertions.assertEquals(expected, actual, "expected fail as this file the wrong file" +
+        Assertions.assertNotEquals(expected, actual, "expected fail as this file the wrong file" +
                 " not the file we want");
     }
 
