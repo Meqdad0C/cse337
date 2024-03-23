@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Vector;
 
 public class FileHandler {
-    public String filePath;
+    public String filePath = "";
 
     public void SetFilePath(String filePath) {
         this.filePath = filePath;
