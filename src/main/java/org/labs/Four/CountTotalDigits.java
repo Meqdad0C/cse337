@@ -2,14 +2,18 @@ package org.labs.Four;
 
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
-        int num, totalDigits = 0;
+public class CountTotalDigits
+{
+    public static void main(String[] args)
+    {
+        int num, totalDigits=0;
         Scanner s = new Scanner(System.in);
+//        System.out.print("Enter a Number: ");
         num = s.nextInt();
-        while (num!=0){
+        while(num!=0)
+        {
             totalDigits++;
-            num /= 10;
+            num = num/10;
         }
         System.out.print(totalDigits);
         s.close();

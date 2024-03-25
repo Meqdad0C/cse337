@@ -3,8 +3,8 @@ package org.labs.Four;
 import java.util.Objects;
 
 public class Student {
-    private String name;
-    private int age;
+    private final String name;
+    private final int age;
 
     public Student(String name, int age) {
         this.name = name;
@@ -20,15 +20,8 @@ public class Student {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Student student = (Student) o;
-
-        if (age != student.age) return false;
-        return Objects.equals(name, student.name);
+    public boolean equals(Object obj) {
+        Student student = (Student) obj;
+        return Objects.equals(this.name, student.getName()) && this.age == student.getAge();
     }
-
-
 }
