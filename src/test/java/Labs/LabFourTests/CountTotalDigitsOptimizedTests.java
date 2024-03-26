@@ -106,6 +106,52 @@ public class CountTotalDigitsOptimizedTests {
         Assertions.assertEquals(expected, actual, "Error in CountTotalDigits with -Zero");
     }
 
+    @Test
+    void TestingSameDigit(){
+
+        input = "111111111";
+
+        bais = new ByteArrayInputStream(input.getBytes());
+        System.setIn(bais);
+
+        CountTotalDigits.main(null);
+
+        actual = baos.toString();
+        expected = "9";
+
+        Assertions.assertEquals(expected, actual, "Error in CountTotalDigits with same digit");
+
+    }
+
+    @Test
+    void TestingInvalidInput(){
+        input = "ABC";
+
+        bais = new ByteArrayInputStream(input.getBytes());
+        System.setIn(bais);
+
+        CountTotalDigits.main(null);
+
+        actual = baos.toString();
+        expected = "0";
+
+        Assertions.assertEquals(expected, actual, "Error in CountTotalDigits with invalid input");
+    }
+
+    @Test
+    void TestingVeryLargeNumber(){
+        input = String.valueOf(Long.MAX_VALUE);
+
+        bais = new ByteArrayInputStream(input.getBytes());
+        System.setIn(bais);
+
+        CountTotalDigits.main(null);
+
+        actual = baos.toString();
+        expected = "19";
+
+        Assertions.assertEquals(expected, actual, "Error in CountTotalDigits with Very large number");
+    }
     @AfterEach
     void tearDown(){
         baos = null;

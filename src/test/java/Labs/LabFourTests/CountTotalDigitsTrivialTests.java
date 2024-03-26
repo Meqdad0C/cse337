@@ -111,4 +111,63 @@ public class CountTotalDigitsTrivialTests {
 
         Assertions.assertEquals(expected, actual, "Error in CountTotalDigits with -Zero");
     }
+
+    @Test
+    void TestingSameDigit(){
+        String input = "111111111";
+
+        InputStream bais = new ByteArrayInputStream(input.getBytes());
+        System.setIn(bais);
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        System.setOut(printStream);
+
+        CountTotalDigits.main(null);
+
+        String actual = baos.toString();
+        String expected = "9";
+
+        Assertions.assertEquals(expected, actual, "Error in CountTotalDigits with same digits");
+    }
+
+    @Test
+    void TestingVeryLargeNumber(){
+
+        String input = String.valueOf(Long.MAX_VALUE);
+
+        InputStream bais = new ByteArrayInputStream(input.getBytes());
+        System.setIn(bais);
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        System.setOut(printStream);
+
+        CountTotalDigits.main(null);
+
+        String actual = baos.toString();
+        String expected = "19";
+
+        Assertions.assertEquals(expected, actual, "Error in CountTotalDigits with Very large number");
+
+    }
+
+    @Test
+    void TestingInvalidInput(){
+        String input = "ABC";
+
+        InputStream bais = new ByteArrayInputStream(input.getBytes());
+        System.setIn(bais);
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        System.setOut(printStream);
+
+        CountTotalDigits.main(null);
+
+        String actual = baos.toString();
+        String expected = "0";
+
+        Assertions.assertEquals(expected, actual, "Error in CountTotalDigits with invalid input");
+    }
 }

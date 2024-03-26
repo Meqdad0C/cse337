@@ -51,4 +51,25 @@ public class StudentTest {
         Assertions.assertNotSame(studentA,studentB,"Shouldn't be Same object");
     }
 
+    @Test
+    public void TestGetName(){
+        Student studentA= new Student("Youssef",22);
+
+        String expected = "Youssef";
+
+        Assertions.assertEquals(expected, studentA.getName());
+
+    }
+
+    @Test
+    public void TestGetAge(){
+
+        Student studentA= new Student("Youssef",22);
+
+        int expected = 22;
+
+        Assertions.assertEquals(expected, studentA.getAge());
+
+    }
+
 }

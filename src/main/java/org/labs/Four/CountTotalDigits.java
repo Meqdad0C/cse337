@@ -1,15 +1,23 @@
 package org.labs.Four;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CountTotalDigits
 {
     public static void main(String[] args)
     {
-        int num, totalDigits=0;
+        long num =0 ; int totalDigits=0;
         Scanner s = new Scanner(System.in);
 //        System.out.print("Enter a Number: ");
-        num = s.nextInt();
+
+        //check if the string not a number
+        try {
+            num = s.nextLong();
+        }
+        catch (InputMismatchException e){
+        }
+
         while(num!=0)
         {
             totalDigits++;
