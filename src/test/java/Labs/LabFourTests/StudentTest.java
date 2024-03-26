@@ -36,7 +36,7 @@ public class StudentTest {
     @Test
     public void TestAssertSame(){
 
-        Student studentA= new Student("Abdelmajid",22);
+        Student studentA= new Student("Abdelmagid",22);
         Student studentB = studentA;
 
         Assertions.assertSame(studentA,studentB,"Should be Same object");
