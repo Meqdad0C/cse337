@@ -16,8 +16,8 @@ public class OutputWriter {
     }
 
     static String writeStudent(Student student) {
-        String string = student.name() + '\t' +
-                student.id() + '\t' +
+        String string = student.getName() + '\t' +
+                student.getId() + '\t' +
                 student.GPA() + '\t' +
                 student.grade() + '\n';
         return string;
