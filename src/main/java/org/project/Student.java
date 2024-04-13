@@ -1,8 +1,12 @@
 package org.project;
 
 public class Student {
-        String name;
-String id;
+    String name;
+    String id;
+    String activity_mark;
+    String oral_mark;
+    String midterm_mark;
+    String final_mark;
 
     public Student(String name, String id, String activity_mark, String oral_mark, String midterm_mark, String final_mark) {
         this.name = name;
@@ -37,10 +41,6 @@ String id;
         return final_mark;
     }
 
-    String activity_mark;
-String oral_mark;
-String midterm_mark;
-String final_mark;
      public int totalMark() {
         return Integer.parseInt(activity_mark) + Integer.parseInt(oral_mark) + Integer.parseInt(midterm_mark) + Integer.parseInt(final_mark);
     }
