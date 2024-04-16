@@ -4,11 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-class InputValidator {
+public class InputValidator {
     /**
      * 1. Subject name: It must be Alphabetic characters and Spaces. the name should not start with space
      */
-    static boolean isSubjectNameValid(String subjectName) {
+    public static boolean isSubjectNameValid(String subjectName) {
         String regex = "^[a-zA-Z][a-zA-Z ]*$";
         return InputValidator.validate_regex(regex, subjectName);
     }
@@ -16,7 +16,7 @@ class InputValidator {
     /**
      * 2. Subject-code: It must be 6-7 Alphanumeric characters. The first 3 are Alphabetic followed by 3 numeric characters. The sevens should be s if exists.
      */
-    static boolean isSubjectCodeValid(String subjectCode) {
+    public static boolean isSubjectCodeValid(String subjectCode) {
         String regex = "^[a-zA-Z]{3}[0-9]{3}s?$";
         return InputValidator.validate_regex(regex, subjectCode);
     }
