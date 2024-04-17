@@ -49,7 +49,7 @@ public class Student {
         return GpaHelper.getGrade(totalMark());
     }
 
-    String GPA() {
+     public String GPA() {
         return GpaHelper.getGrade(totalMark());
     }
 }
