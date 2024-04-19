@@ -18,7 +18,8 @@ public class InputParser {
             throw new IllegalArgumentException("Invalid input for student, expected student name, student number, student activities mark, oral mark, mid mark, and final mark");
         }
         String studentName = parts[0], studentNumber = parts[1], studentActivitiesMark = parts[2], oralMark = parts[3], midMark = parts[4], finalMark = parts[5];
-        InputValidator.validateStudent(studentName, studentNumber, studentActivitiesMark, oralMark, midMark, finalMark);
+        InputValidator In_validator =new InputValidator();
+        In_validator.validateStudent(studentName, studentNumber, studentActivitiesMark, oralMark, midMark, finalMark);
         return new Student(studentName, studentNumber, studentActivitiesMark, oralMark, midMark, finalMark);
     }
 

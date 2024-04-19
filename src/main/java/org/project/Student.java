@@ -49,7 +49,23 @@ public class Student {
         return GpaHelper.getGrade(totalMark());
     }
 
-     public String GPA() {
-        return GpaHelper.getGrade(totalMark());
-    }
+     public double GPA() {
+//        return GpaHelper.getGPA(Grade.valueOf(grade()));
+         Grade grade = Grade.valueOf(grade()); // Obtain the Grade enum corresponding to the grade string
+//         System.out.println(grade);
+         return GpaHelper.getGPA(grade); // Use the Grade enum to get the GPA
+
+//         return 0;
+     }
+
+//    public static void main (String[] args){
+//        String name = "Abdelmagid";
+//        String id =  "1111";
+//        String activity_mark = "10";
+//        String oral_mark = "10";
+//        String midterm_mark = "10";
+//        String final_mark = "35";
+//        Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
+//        double gpa = st.GPA();
+//    }
 }

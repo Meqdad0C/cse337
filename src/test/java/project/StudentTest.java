@@ -253,7 +253,7 @@ public class StudentTest {
         String final_mark = "60";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("4",st.GPA());
+        Assertions.assertEquals(4,st.GPA());
 
     }
 
@@ -267,7 +267,7 @@ public class StudentTest {
         String final_mark = "59";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("4",st.grade());
+        Assertions.assertEquals(4,st.GPA());
 
     }
     @Test
@@ -280,7 +280,7 @@ public class StudentTest {
         String final_mark = "59";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("4",st.grade());
+        Assertions.assertEquals("4",st.GPA());
 
     }
     @Test
@@ -293,7 +293,7 @@ public class StudentTest {
         String final_mark = "60";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("3.7",st.grade());
+        Assertions.assertEquals("3.7",st.GPA());
 
     }
     @Test
@@ -306,7 +306,7 @@ public class StudentTest {
         String final_mark = "50";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("3.3",st.grade());
+        Assertions.assertEquals("3.3",st.GPA());
 
     }
 
@@ -320,7 +320,7 @@ public class StudentTest {
         String final_mark = "50";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("3",st.grade());
+        Assertions.assertEquals("3",st.GPA());
 
     }
     @Test
@@ -333,7 +333,7 @@ public class StudentTest {
         String final_mark = "50";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("2.7",st.grade());
+        Assertions.assertEquals("2.7",st.GPA());
 
     }
 
@@ -347,7 +347,7 @@ public class StudentTest {
         String final_mark = "35";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("2.3",st.grade());
+        Assertions.assertEquals("2.3",st.GPA());
 
     }
     @Test
@@ -360,7 +360,7 @@ public class StudentTest {
         String final_mark = "30";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("2",st.grade());
+        Assertions.assertEquals("2",st.GPA());
 
     }
 
@@ -374,7 +374,7 @@ public class StudentTest {
         String final_mark = "32";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("1.7",st.grade());
+        Assertions.assertEquals("1.7",st.GPA());
 
     }
     @Test
@@ -387,7 +387,7 @@ public class StudentTest {
         String final_mark = "24";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("1.3",st.grade());
+        Assertions.assertEquals("1.3",st.GPA());
 
     }
 
@@ -401,7 +401,7 @@ public class StudentTest {
         String final_mark = "55";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("1",st.grade());
+        Assertions.assertEquals("1",st.GPA());
 
     }
 
@@ -415,7 +415,8 @@ public class StudentTest {
         String final_mark = "30";
         Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
 
-        Assertions.assertEquals("0",st.grade());
+        Assertions.assertEquals("0",st.GPA());
+
 
     }
 }

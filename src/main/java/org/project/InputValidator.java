@@ -48,10 +48,11 @@ public class InputValidator {
     /**
      * 6. Student Activities mark: It is an integer of a value from 0 up to 10 of the full mark
      */
-    static boolean isStudentActivitiesMarkValid(String studentActivitiesMark) {
+    public boolean isStudentActivitiesMarkValid(String studentActivitiesMark) {
         try {
             int mark = Integer.parseInt(studentActivitiesMark);
-            return InputValidator.validate_range(0, 10, mark);
+
+            return validate_range(0, 10, mark);
         } catch (NumberFormatException e) {
             return false;
         }
@@ -60,10 +61,10 @@ public class InputValidator {
     /**
      * 7. Oral/Practical mark: It is an integer of a value from 0 up to 10 of the full mark
      */
-    static boolean isOralPracticalMarkValid(String oralPracticalMark) {
+    boolean isOralPracticalMarkValid(String oralPracticalMark) {
         try {
             int mark = Integer.parseInt(oralPracticalMark);
-            return InputValidator.validate_range(0, 10, mark);
+            return validate_range(0, 10, mark);
         } catch (NumberFormatException e) {
             return false;
         }
@@ -73,10 +74,10 @@ public class InputValidator {
      * 8. Midterm exam mark: It is an integer of a value from 0 up to 20 of the full mark
      */
 
-    static boolean isMidtermExamMarkValid(String midtermExamMark) {
+    boolean isMidtermExamMarkValid(String midtermExamMark) {
         try {
             int mark = Integer.parseInt(midtermExamMark);
-            return InputValidator.validate_range(0, 20, mark);
+            return validate_range(0, 20, mark);
         } catch (NumberFormatException e) {
             return false;
         }
@@ -86,16 +87,16 @@ public class InputValidator {
      * 9. Final exam mark: It is an integer of a value from 0 up to 60 of the full mark
      */
 
-    static boolean isFinalExamMarkValid(String finalExamMark) {
+    boolean isFinalExamMarkValid(String finalExamMark) {
         try {
             int mark = Integer.parseInt(finalExamMark);
-            return InputValidator.validate_range(0, 60, mark);
+            return validate_range(0, 60, mark);
         } catch (NumberFormatException e) {
             return false;
         }
     }
 
-    static boolean validateStudent(String name, String id, String activity_mark, String oral_mark, String midterm_mark, String final_mark) throws IllegalArgumentException {
+    boolean validateStudent(String name, String id, String activity_mark, String oral_mark, String midterm_mark, String final_mark) throws IllegalArgumentException {
         if (!isStudentNameValid(name)) {
             throw new IllegalArgumentException("Invalid student name got " + name + " expected alphabetic characters and spaces");
         }
@@ -137,7 +138,7 @@ public class InputValidator {
         return matcher.matches();
     }
 
-    private static boolean validate_range(int min, int max, int input) {
+    public  boolean validate_range(int min, int max, int input) {
         return input >= min && input <= max;
     }
 }
