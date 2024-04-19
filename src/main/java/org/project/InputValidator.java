@@ -74,7 +74,7 @@ public class InputValidator {
      * 8. Midterm exam mark: It is an integer of a value from 0 up to 20 of the full mark
      */
 
-    boolean isMidtermExamMarkValid(String midtermExamMark) {
+    public boolean isMidtermExamMarkValid(String midtermExamMark) {
         try {
             int mark = Integer.parseInt(midtermExamMark);
             return validate_range(0, 20, mark);
@@ -87,7 +87,7 @@ public class InputValidator {
      * 9. Final exam mark: It is an integer of a value from 0 up to 60 of the full mark
      */
 
-    boolean isFinalExamMarkValid(String finalExamMark) {
+    public boolean isFinalExamMarkValid(String finalExamMark) {
         try {
             int mark = Integer.parseInt(finalExamMark);
             return validate_range(0, 60, mark);
