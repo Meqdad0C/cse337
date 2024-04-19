@@ -117,7 +117,7 @@ public class InputValidator {
         return true;
     }
 
-    static boolean validateSubject(String name, String code, String fullMark) throws IllegalArgumentException {
+    public static boolean validateSubject(String name, String code, String fullMark) throws IllegalArgumentException {
         if (!isSubjectNameValid(name)) {
             throw new IllegalArgumentException("Invalid subject name got " + name + " expected alphabetic characters and spaces");
         }

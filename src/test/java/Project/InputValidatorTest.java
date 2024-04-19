@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.project.InputValidator;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class InputValidatorTest {
 
     /*                              isSubjectNameValid Method Testing                         */
@@ -252,5 +254,73 @@ public class InputValidatorTest {
         boolean expected = false;
         boolean actual = InputValidator.isSubjectCodeValid("EMP462sIce");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
+    }
+
+    @Test
+    public void testValidSubjectName() {
+        assertTrue(InputValidator.validateSubject("Mathematics Advanced", "ABC123", "100"));
+    }
+
+    @Test
+    public void testSubjectNameStartsWithSpace() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject(" Mathematics", "ABC123", "100"));
+    }
+
+    @Test
+    public void testSubjectNameWithNonAlphabeticCharacters() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject("Math123", "ABC123", "100"));
+    }
+
+    @Test
+    public void testEmptySubjectName() {
+        assertThrows(IllegalArgumentException.class, () ->
+            InputValidator.validateSubject("", "ABC123", "100"));
+    }
+
+    @Test
+    public void testValidSubjectCode6Chars() {
+        assertTrue(InputValidator.validateSubject("Physics", "XYZ789", "100"));
+    }
+
+    @Test
+    public void testValidSubjectCode7Chars() {
+        assertTrue(InputValidator.validateSubject("Biology", "XYZ789s", "100"));
+    }
+
+    @Test
+    public void testSubjectCodeTooShort() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject("Chemistry", "XYZ78", "100"));
+    }
+
+    @Test
+    public void testSubjectCodeTooLong() {
+        assertThrows(IllegalArgumentException.class, () ->
+            InputValidator.validateSubject("Chemistry", "XYZ12345", "100"));
+    }
+
+    @Test
+    public void testSubjectCodeInvalidCharacters() {
+        assertThrows(IllegalArgumentException.class, () ->
+            InputValidator.validateSubject("Chemistry", "XY3123", "100"));
+    }
+
+    @Test
+    public void testSubjectCodeInvalidNumericPart() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject("Chemistry", "XYZ12s", "100"));
+    }
+
+    @Test
+    public void testValidFullMark() {
+        assertTrue(InputValidator.validateSubject("History", "XYZ123", "100"));
+    }
+
+    @Test
+    public void testInvalidFullMarkNumeric() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject("History", "XYZ123", "90"));
+    }
+
+    @Test
+    public void testInvalidFullMarkNonNumeric() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject("History", "XYZ123", "One hundred"));
     }
 }
