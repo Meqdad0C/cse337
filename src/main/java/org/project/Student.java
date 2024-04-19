@@ -50,8 +50,7 @@ public class Student {
     }
 
      public double GPA() {
-//        return GpaHelper.getGPA(Grade.valueOf(grade()));
-         Grade grade = Grade.valueOf(grade()); // Obtain the Grade enum corresponding to the grade string
+         Grade grade = Grade.fromRepresentation(grade()); // Obtain the Grade enum corresponding to the grade string
 //         System.out.println(grade);
          return GpaHelper.getGPA(grade); // Use the Grade enum to get the GPA
 
