@@ -330,78 +330,85 @@ public class InputValidatorTest {
 
     @Test
     void isStudentActivitiesMarkValid_InvalidMark_negativeBigNumber(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = -50;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isStudentActivitiesMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isStudentActivitiesMarkValid(String.valueOf(input));
         assertFalse(actual);
     }
 
     @Test
     void isStudentActivitiesMarkValid_InvalidMark_negativeNumberBoundary(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = -1;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isStudentActivitiesMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isStudentActivitiesMarkValid(String.valueOf(input));
         assertFalse(actual);
     }
 
     @Test
     void isStudentActivitiesMarkValid_InvalidMark_positiveBigNumber(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = 100;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isStudentActivitiesMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isStudentActivitiesMarkValid(String.valueOf(input));
         assertFalse(actual);
     }
 
     @Test
     void isStudentActivitiesMarkValid_InvalidMark_positiveNumberBoundary(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = 11;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isStudentActivitiesMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isStudentActivitiesMarkValid(String.valueOf(input));
         assertFalse(actual);
     }
 
     @Test
     void isStudentActivitiesMarkValid_ValidMark_Zero(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = 0;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isStudentActivitiesMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isStudentActivitiesMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
 
     @Test
     void isStudentActivitiesMarkValid_ValidMark_MaxVal(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = 10;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isStudentActivitiesMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isStudentActivitiesMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
 
     @Test
     void isStudentActivitiesMarkValid_ValidMark_inRange(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = 5;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isStudentActivitiesMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isStudentActivitiesMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
 
@@ -471,79 +478,85 @@ public class InputValidatorTest {
 
     @Test
     void isOralPracticalMarkValid_InvalidMark_negativeBigNumber(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = -50;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isOralPracticalMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isOralPracticalMarkValid(String.valueOf(input));
         assertFalse(actual);
     }
 
     @Test
     void isOralPracticalMarkValid_InvalidMark_negativeNumberBoundary(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = -1;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isOralPracticalMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isOralPracticalMarkValid(String.valueOf(input));
         assertFalse(actual);
     }
 
     @Test
     void isOralPracticalMarkValid_InvalidMark_positiveBigNumber(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = 100;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isOralPracticalMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isOralPracticalMarkValid(String.valueOf(input));
         assertFalse(actual);
     }
 
     @Test
     void isOralPracticalMarkValid_InvalidMark_positiveNumberBoundary(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = 11;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isOralPracticalMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isOralPracticalMarkValid(String.valueOf(input));
         assertFalse(actual);
     }
 
     @Test
     void isOralPracticalMarkValid_ValidMark_Zero(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = 0;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isOralPracticalMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isOralPracticalMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
 
     @Test
     void isOralPracticalMarkValid_ValidMark_MaxVal(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = 10;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isOralPracticalMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isOralPracticalMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
 
     @Test
     void isOralPracticalMarkValid_ValidMark_inRange(){
-        InputValidator mockValidateRange = spy(InputValidator.class);
-//        InputValidator in_validator =new InputValidator();
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
         int min =0;
         int max =10;
         int input = 5;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
-        boolean actual = mockValidateRange.isOralPracticalMarkValid(String.valueOf(input));
+        when(spyValidator.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = spyValidator.isOralPracticalMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
 
