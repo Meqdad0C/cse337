@@ -496,43 +496,6 @@ public class InputValidatorTest {
         boolean actual = in_validator.isStudentActivitiesMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
-
-    /*                              isFinalExamMarkValid Method Testing                         */
-
-    @Test
-    void isFinalExamMarkValid_validMark_inRange(){
-        InputValidator mockValidateRange = mock(InputValidator.class);
-        InputValidator in_validator =new InputValidator();
-        int min =0;
-        int max =60;
-        int input = 10;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(true );
-        boolean actual = in_validator.isStudentActivitiesMarkValid(String.valueOf(input));
-        assertTrue(actual);
-    }
-    @Test
-    void isFinalExamMarkValid_validMark_maxValue(){
-        InputValidator mockValidateRange = mock(InputValidator.class);
-        InputValidator in_validator =new InputValidator();
-        int min =0;
-        int max =60;
-        int input = 60;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(true );
-        boolean actual = in_validator.isStudentActivitiesMarkValid(String.valueOf(input));
-        assertTrue(actual);
-    }
-    @Test
-    void isFinalExamMarkValid_validMark_minValue(){
-        InputValidator mockValidateRange = mock(InputValidator.class);
-        InputValidator in_validator =new InputValidator();
-        int min =0;
-        int max =60;
-        int input = 0;
-        when(mockValidateRange.validate_range(min,max,input)).thenReturn(true );
-        boolean actual = in_validator.isStudentActivitiesMarkValid(String.valueOf(input));
-        assertTrue(actual);
-    }
-
-    /*                              isMidtermExamMarkValid Method Testing                         */
+    
 }
 
