@@ -1,4 +1,4 @@
-package Project;
+package project;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -496,5 +496,187 @@ public class InputValidatorTest {
         boolean actual = in_validator.isStudentActivitiesMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
+    @Test
+    void isStudentActivitiesMarkValid_invalidMark_exceptionTesting(){
+        InputValidator in_validator =new InputValidator();
+        String input = "Megz";
+        boolean actual = in_validator.isStudentActivitiesMarkValid(input);
+        assertFalse(actual);
+    }
 
+
+    @Test
+    void isOralPracticalMarkValid_InvalidMark_negativeBigNumber(){
+        InputValidator mockValidateRange = mock(InputValidator.class);
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = -50;
+//        PowerMockito.mockSta
+        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertFalse(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_InvalidMark_negativeNumberBoundary(){
+        InputValidator mockValidateRange = mock(InputValidator.class);
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = -1;
+//        PowerMockito.mockSta
+        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertFalse(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_InvalidMark_positiveBigNumber(){
+        InputValidator mockValidateRange = mock(InputValidator.class);
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = 100;
+//        PowerMockito.mockSta
+        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertFalse(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_InvalidMark_positiveNumberBoundary(){
+        InputValidator mockValidateRange = mock(InputValidator.class);
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = 11;
+//        PowerMockito.mockSta
+        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertFalse(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_ValidMark_Zero(){
+        InputValidator mockValidateRange = mock(InputValidator.class);
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = 0;
+//        PowerMockito.mockSta
+        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_ValidMark_MaxVal(){
+        InputValidator mockValidateRange = mock(InputValidator.class);
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = 10;
+//        PowerMockito.mockSta
+        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_ValidMark_inRange(){
+        InputValidator mockValidateRange = mock(InputValidator.class);
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = 5;
+//        PowerMockito.mockSta
+        when(mockValidateRange.validate_range(min,max,input)).thenReturn(input>=min && input <=max );
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_InvalidMark_negativeBigNumber_NoMock(){
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = -50;
+//        PowerMockito.mockSta
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertFalse(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_InvalidMark_negativeNumberBoundary_NoMock(){
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = -1;
+//        PowerMockito.mockSta
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertFalse(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_InvalidMark_positiveBigNumber_NoMock(){
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = 100;
+//        PowerMockito.mockSta
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertFalse(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_InvalidMark_positiveNumberBoundary_NoMock(){
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = 11;
+//        PowerMockito.mockSta
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertFalse(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_ValidMark_Zero_NoMock(){
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = 0;
+//        PowerMockito.mockSta
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_ValidMark_MaxVal_NoMock(){
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = 10;
+//        PowerMockito.mockSta
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_ValidMark_inRange_NoMock(){
+        InputValidator in_validator =new InputValidator();
+        int min =0;
+        int max =10;
+        int input = 3;
+//        PowerMockito.mockSta
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+    @Test
+    void isOralPracticalMarkValid_invalidMark_exceptionTesting(){
+        InputValidator in_validator =new InputValidator();
+        String input = "Megz";
+        boolean actual = in_validator.isOralPracticalMarkValid(input);
+        assertFalse(actual);
+    }
 }

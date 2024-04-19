@@ -61,7 +61,7 @@ public class InputValidator {
     /**
      * 7. Oral/Practical mark: It is an integer of a value from 0 up to 10 of the full mark
      */
-    boolean isOralPracticalMarkValid(String oralPracticalMark) {
+    public boolean isOralPracticalMarkValid(String oralPracticalMark) {
         try {
             int mark = Integer.parseInt(oralPracticalMark);
             return validate_range(0, 10, mark);
