@@ -43,7 +43,10 @@ public class InputValidator {
      * 5. Student number: the length of this field must be Alphanumeric characters of exact
      * length of 8 characters. It should start with numbers and might End with only one Alphabetic character
      */
-    static boolean isStudentNumberValid(String studentNumber) {
+    public boolean isStudentNumberValid(String studentNumber) {
+        if (studentNumber == null) {
+            return false;
+        }
         String regex = "^\\d{7}([A-Za-z]|\\d)$";
         return InputValidator.validate_regex(regex, studentNumber);
     }

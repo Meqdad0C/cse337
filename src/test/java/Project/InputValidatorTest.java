@@ -699,60 +699,114 @@ public class InputValidatorTest {
     @Test
     public void isStudentNameValid_test_validNameWithAlphabetsOnly() {
         InputValidator in_validator =new InputValidator();
-        Assertions.assertTrue(in_validator.isStudentNameValid("Abdalla"));
+        assertTrue(in_validator.isStudentNameValid("Abdalla"));
     }
 
     @Test
     public void isStudentNameValid_test_validNameWithAlphabetsAndSpaces() {
         InputValidator in_validator =new InputValidator();
-        Assertions.assertTrue(in_validator.isStudentNameValid("Abdalla Ibrahim"));
+        assertTrue(in_validator.isStudentNameValid("Abdalla Ibrahim"));
     }
 
     @Test
     public void isStudentNameValid_test_nameStartsWithSpace() {
         InputValidator in_validator =new InputValidator();
-        Assertions.assertFalse(in_validator.isStudentNameValid(" Abdalla Ibrahim"));
+        assertFalse(in_validator.isStudentNameValid(" Abdalla Ibrahim"));
     }
 
     @Test
     public void isStudentNameValid_test_nameContainsNumbers() {
         InputValidator in_validator =new InputValidator();
-        Assertions.assertFalse(in_validator.isStudentNameValid("Abdalla123"));
+        assertFalse(in_validator.isStudentNameValid("Abdalla123"));
     }
 
     @Test
     public void isStudentNameValid_test_nameContainsSpecialCharacters() {
         InputValidator in_validator =new InputValidator();
-        Assertions.assertFalse(in_validator.isStudentNameValid("Abdalla-Ibrahim"));
+        assertFalse(in_validator.isStudentNameValid("Abdalla-Ibrahim"));
     }
 
     @Test
     public void isStudentNameValid_test_emptyName() {
         InputValidator in_validator =new InputValidator();
-        Assertions.assertFalse(in_validator.isStudentNameValid(""));
+        assertFalse(in_validator.isStudentNameValid(""));
     }
 
     @Test
     public void isStudentNameValid_test_nullName() {
         InputValidator in_validator =new InputValidator();
-        Assertions.assertFalse(in_validator.isStudentNameValid(null));
+        assertFalse(in_validator.isStudentNameValid(null));
     }
 
     @Test
     public void isStudentNameValid_test_singleCharacterName() {
         InputValidator in_validator =new InputValidator();
-        Assertions.assertTrue(in_validator.isStudentNameValid("A"));
+        assertTrue(in_validator.isStudentNameValid("A"));
     }
 
     @Test
     public void isStudentNameValid_test_nameWithSpacesBetween() {
         InputValidator in_validator =new InputValidator();
-        Assertions.assertTrue(in_validator.isStudentNameValid("Abdalla Ibrahim Abdalla"));
+        assertTrue(in_validator.isStudentNameValid("Abdalla Ibrahim Abdalla"));
     }
 
     @Test
     public void isStudentNameValid_test_nameWithLongValidName() {
         InputValidator in_validator =new InputValidator();
-        Assertions.assertTrue(in_validator.isStudentNameValid("John Jacob Jingleheimer Schmidt"));
+        assertTrue(in_validator.isStudentNameValid("John Jacob Jingleheimer Schmidt"));
+    }
+
+    @Test
+    public void isStudentNumberValid_test_caseValidStudentNumberWithDigit() {
+        InputValidator in_validator =new InputValidator();
+        assertTrue(in_validator.isStudentNumberValid("12345678"));
+    }
+
+    @Test
+    public void isStudentNumberValid_test_caseValidStudentNumberWithLetter() {
+        InputValidator in_validator =new InputValidator();
+        assertTrue(in_validator.isStudentNumberValid("1234567A"));
+    }
+
+    @Test
+    public void isStudentNumberValid_test_caseInvalidStudentNumberShort() {
+        InputValidator in_validator =new InputValidator();
+        assertFalse(in_validator.isStudentNumberValid("1234567"));
+    }
+
+    @Test
+    public void isStudentNumberValid_test_caseInvalidStudentNumberLong() {
+        InputValidator in_validator =new InputValidator();
+        assertFalse(in_validator.isStudentNumberValid("123456789"));
+    }
+
+    @Test
+    public void isStudentNumberValid_test_caseInvalidStudentNumberWithNonAlphanumeric() {
+        InputValidator in_validator =new InputValidator();
+        assertFalse(in_validator.isStudentNumberValid("1234567*"));
+    }
+
+    @Test
+    public void isStudentNumberValid_test_caseInvalidStudentNumberWithLettersInMiddle() {
+        InputValidator in_validator =new InputValidator();
+        assertFalse(in_validator.isStudentNumberValid("1234A678"));
+    }
+
+    @Test
+    public void isStudentNumberValid_test_caseInvalidStudentNumberAllLetters() {
+        InputValidator in_validator =new InputValidator();
+        assertFalse(in_validator.isStudentNumberValid("ABCDEFGH"));
+    }
+
+    @Test
+    public void isStudentNumberValid_test_caseInvalidStudentNumberEmpty() {
+        InputValidator in_validator =new InputValidator();
+        assertFalse(in_validator.isStudentNumberValid(""));
+    }
+
+    @Test
+    public void isStudentNumberValid_test_caseInvalidStudentNumberNull() {
+        InputValidator in_validator =new InputValidator();
+        assertFalse(in_validator.isStudentNumberValid(null));
     }
 }
