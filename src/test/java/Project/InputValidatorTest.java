@@ -1,6 +1,7 @@
-package project;
+package Project;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.project.InputValidator;
 
@@ -10,116 +11,125 @@ import static org.mockito.Mockito.*;
 
 public class InputValidatorTest {
 
+   static InputValidator inputValidator;
+
+    @BeforeAll
+    public static void setup() {
+        inputValidator = new InputValidator();
+    }
+
+
+
     /*                              isSubjectNameValid Method Testing                         */
     @Test
     void isSubjectNameValid_validSubject_OneWord(){
         boolean expected = true;
-        boolean actual = InputValidator.isSubjectNameValid("Java");
+        boolean actual = inputValidator.isSubjectNameValid("Java");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_validSubject_TwoWords(){
         boolean expected = true;
-        boolean actual = InputValidator.isSubjectNameValid("Software Testing");
+        boolean actual = inputValidator.isSubjectNameValid("Software Testing");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_validSubject_ManyWords(){
         boolean expected = true;
-        boolean actual = InputValidator.isSubjectNameValid("Professional Ethics and Legislations");
+        boolean actual = inputValidator.isSubjectNameValid("Professional Ethics and Legislations");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_validSubject_SpaceEnd(){
         boolean expected = true;
-        boolean actual = InputValidator.isSubjectNameValid("Professional Ethics and Legislations ");
+        boolean actual = inputValidator.isSubjectNameValid("Professional Ethics and Legislations ");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_validSubject_ManySpaces(){
         boolean expected = true;
-        boolean actual = InputValidator.isSubjectNameValid("Professional     Ethics    and      Legislations      ");
+        boolean actual = inputValidator.isSubjectNameValid("Professional     Ethics    and      Legislations      ");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_validSubject_OneChar(){
         boolean expected = true;
-        boolean actual = InputValidator.isSubjectNameValid("S");
+        boolean actual = inputValidator.isSubjectNameValid("S");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_InvalidSubject_OneNum(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectNameValid("2");
+        boolean actual = inputValidator.isSubjectNameValid("2");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_InvalidSubject_SpaceStart(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectNameValid(" Software Testing");
+        boolean actual = inputValidator.isSubjectNameValid(" Software Testing");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_InvalidSubject_onlySpaces(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectNameValid("    ");
+        boolean actual = inputValidator.isSubjectNameValid("    ");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_InvalidSubject_numberStart(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectNameValid("2Software Testing");
+        boolean actual = inputValidator.isSubjectNameValid("2Software Testing");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_InvalidSubject_numberMiddle(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectNameValid("Software250Testing");
+        boolean actual = inputValidator.isSubjectNameValid("Software250Testing");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_InvalidSubject_numberEnd(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectNameValid("Software Testing10");
+        boolean actual = inputValidator.isSubjectNameValid("Software Testing10");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_InvalidSubject_specialCharacterStart(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectNameValid("$oftware Testing");
+        boolean actual = inputValidator.isSubjectNameValid("$oftware Testing");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_InvalidSubject_specialCharacterMiddle1(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectNameValid("Software_Testing");
+        boolean actual = inputValidator.isSubjectNameValid("Software_Testing");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_InvalidSubject_specialCharacterMiddle2(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectNameValid("Professional Ethics @nd Legislations ");
+        boolean actual = inputValidator.isSubjectNameValid("Professional Ethics @nd Legislations ");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
     @Test
     void isSubjectNameValid_InvalidSubject_specialCharacterEnd(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectNameValid("Professional Ethics and Legislations! ");
+        boolean actual = inputValidator.isSubjectNameValid("Professional Ethics and Legislations! ");
         Assertions.assertEquals(expected, actual, "Error in isSubjectNameValid method");
     }
 
@@ -128,202 +138,266 @@ public class InputValidatorTest {
     @Test
     void isSubjectCodeValid_validCode_UpperCase_without_s(){
         boolean expected = true;
-        boolean actual = InputValidator.isSubjectCodeValid("CSE337");
+        boolean actual = inputValidator.isSubjectCodeValid("CSE337");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_validCode_LowerCase_with_s(){
         boolean expected = true;
-        boolean actual = InputValidator.isSubjectCodeValid("cse337s");
+        boolean actual = inputValidator.isSubjectCodeValid("cse337s");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_Capital_S(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("CSE337S");
+        boolean actual = inputValidator.isSubjectCodeValid("CSE337S");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_Substitute_s(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("CSE337o");
+        boolean actual = inputValidator.isSubjectCodeValid("CSE337o");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_1MoreChar(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("CSEC337");
+        boolean actual = inputValidator.isSubjectCodeValid("CSEC337");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_1MoreNumber(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("CSE3375");
+        boolean actual = inputValidator.isSubjectCodeValid("CSE3375");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_lessNumber(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("CSE33s");
+        boolean actual = inputValidator.isSubjectCodeValid("CSE33s");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_lessChar(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("EC225s");
+        boolean actual = inputValidator.isSubjectCodeValid("EC225s");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_SpecialChar_withAlphabetic(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("EC$225");
+        boolean actual = inputValidator.isSubjectCodeValid("EC$225");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_SpecialChar_withNumbers(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("ECE22$");
+        boolean actual = inputValidator.isSubjectCodeValid("ECE22$");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_Substitute_chars_with_numbers(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("990cse");
+        boolean actual = inputValidator.isSubjectCodeValid("990cse");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_OnlyChars(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("CSEs");
+        boolean actual = inputValidator.isSubjectCodeValid("CSEs");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_OnlyNums(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("254");
+        boolean actual = inputValidator.isSubjectCodeValid("254");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_StartSpace(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid(" CSE450");
+        boolean actual = inputValidator.isSubjectCodeValid(" CSE450");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_MiddleSpace(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("CSE 450");
+        boolean actual = inputValidator.isSubjectCodeValid("CSE 450");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_EndSpace(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("CSE450 ");
+        boolean actual = inputValidator.isSubjectCodeValid("CSE450 ");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_OneChar(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("s");
+        boolean actual = inputValidator.isSubjectCodeValid("s");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_OneNum(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("5");
+        boolean actual = inputValidator.isSubjectCodeValid("5");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     void isSubjectCodeValid_InvalidCode_moreThan7(){
         boolean expected = false;
-        boolean actual = InputValidator.isSubjectCodeValid("EMP462sIce");
+        boolean actual = inputValidator.isSubjectCodeValid("EMP462sIce");
         Assertions.assertEquals(expected, actual, "Error in isSubjectCodeValid method");
     }
 
     @Test
     public void testValidSubjectName() {
-        assertTrue(InputValidator.validateSubject("Mathematics Advanced", "ABC123", "100"));
+
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("Mathematics Advanced")).thenReturn(true);
+        when(inputValidator.isSubjectCodeValid("ABC123")).thenReturn(true);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertTrue(inputValidator.validateSubject("Mathematics Advanced", "ABC123", "100"));
+
     }
 
     @Test
-    public void testSubjectNameStartsWithSpace() {
-        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject(" Mathematics", "ABC123", "100"));
+    public void testSubject_NameStartsWithSpace() {
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid(" Mathematics")).thenReturn(false);
+        when(inputValidator.isSubjectCodeValid("ABC123")).thenReturn(true);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateSubject(" Mathematics", "ABC123", "100"));
     }
 
     @Test
-    public void testSubjectNameWithNonAlphabeticCharacters() {
-        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject("Math123", "ABC123", "100"));
+    public void testSubject_NameWithNonAlphabeticCharacters() {
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("Math123")).thenReturn(false);
+        when(inputValidator.isSubjectCodeValid("ABC123")).thenReturn(true);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateSubject("Math123", "ABC123", "100"));
     }
 
     @Test
     public void testEmptySubjectName() {
-        assertThrows(IllegalArgumentException.class, () ->
-            InputValidator.validateSubject("", "ABC123", "100"));
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("")).thenReturn(false);
+        when(inputValidator.isSubjectCodeValid("ABC123")).thenReturn(true);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateSubject("", "ABC123", "100"));
     }
 
     @Test
-    public void testValidSubjectCode6Chars() {
-        assertTrue(InputValidator.validateSubject("Physics", "XYZ789", "100"));
+    public void test_ValidSubjectCode6Chars() {
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("Physics")).thenReturn(true);
+        when(inputValidator.isSubjectCodeValid("XYZ789")).thenReturn(true);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertTrue(inputValidator.validateSubject("Physics", "XYZ789", "100"));
     }
 
     @Test
-    public void testValidSubjectCode7Chars() {
-        assertTrue(InputValidator.validateSubject("Biology", "XYZ789s", "100"));
+    public void test_ValidSubjectCode7Chars() {
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("Biology")).thenReturn(true);
+        when(inputValidator.isSubjectCodeValid("XYZ789s")).thenReturn(true);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertTrue(inputValidator.validateSubject("Biology", "XYZ789s", "100"));
     }
 
     @Test
     public void testSubjectCodeTooShort() {
-        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject("Chemistry", "XYZ78", "100"));
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("Chemistry")).thenReturn(true);
+        when(inputValidator.isSubjectCodeValid("XYZ78")).thenReturn(false);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateSubject("Chemistry", "XYZ78", "100"));
     }
 
     @Test
-    public void testSubjectCodeTooLong() {
-        assertThrows(IllegalArgumentException.class, () ->
-            InputValidator.validateSubject("Chemistry", "XYZ12345", "100"));
+    public void test_SubjectCodeTooLong() {
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("Chemistry")).thenReturn(true);
+        when(inputValidator.isSubjectCodeValid("XYZ12345")).thenReturn(false);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateSubject("Chemistry", "XYZ12345", "100"));
     }
 
     @Test
     public void testSubjectCodeInvalidCharacters() {
-        assertThrows(IllegalArgumentException.class, () ->
-            InputValidator.validateSubject("Chemistry", "XY3123", "100"));
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("Chemistry")).thenReturn(true);
+        when(inputValidator.isSubjectCodeValid("XY3123")).thenReturn(false);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateSubject("Chemistry", "XY3123", "100"));
     }
 
     @Test
     public void testSubjectCodeInvalidNumericPart() {
-        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject("Chemistry", "XYZ12s", "100"));
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("Chemistry")).thenReturn(true);
+        when(inputValidator.isSubjectCodeValid("XYZ12s")).thenReturn(false);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateSubject("Chemistry", "XYZ12s", "100"));
     }
 
     @Test
-    public void testValidFullMark() {
-        assertTrue(InputValidator.validateSubject("History", "XYZ123", "100"));
+    public void test_ValidFullMark() {
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("History")).thenReturn(true);
+        when(inputValidator.isSubjectCodeValid("XYZ123")).thenReturn(true);
+        when(inputValidator.isFullMarkValid("100")).thenReturn(true);
+        assertTrue(inputValidator.validateSubject("History", "XYZ123", "100"));
     }
 
     @Test
     public void testInvalidFullMarkNumeric() {
-        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject("History", "XYZ123", "90"));
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("History")).thenReturn(true);
+        when(inputValidator.isSubjectCodeValid("XYZ123")).thenReturn(true);
+        when(inputValidator.isFullMarkValid("90")).thenReturn(false);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateSubject("History", "XYZ123", "90"));
     }
 
     @Test
-    public void testInvalidFullMarkNonNumeric() {
-        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateSubject("History", "XYZ123", "One hundred"));
+    public void test_InvalidFullMarkNonNumeric() {
+        InputValidator inputValidator = spy(InputValidator.class);
+
+        when(inputValidator.isSubjectNameValid("History")).thenReturn(true);
+        when(inputValidator.isSubjectCodeValid("XYZ123")).thenReturn(true);
+        when(inputValidator.isFullMarkValid("One hundred")).thenReturn(false);
+        assertThrows(IllegalArgumentException.class, () -> inputValidator.validateSubject("History", "XYZ123", "One hundred"));
     }
 
 

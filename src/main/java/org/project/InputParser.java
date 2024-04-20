@@ -8,7 +8,8 @@ public class InputParser {
             throw new IllegalArgumentException("Invalid input, expected subject name, subject code, and full mark");
         }
         String subjectName = parts[0], subjectCode = parts[1], fullMark = parts[2];
-        InputValidator.validateSubject(subjectName, subjectCode, fullMark);
+        InputValidator inputValidator = new InputValidator();
+        inputValidator.validateSubject(subjectName, subjectCode, fullMark);
         return new Subject(subjectName, subjectCode, fullMark);
     }
 

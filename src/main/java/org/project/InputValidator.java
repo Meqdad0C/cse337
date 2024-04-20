@@ -8,7 +8,7 @@ public class InputValidator {
     /**
      * 1. Subject name: It must be Alphabetic characters and Spaces. the name should not start with space
      */
-    public static boolean isSubjectNameValid(String subjectName) {
+    public boolean isSubjectNameValid(String subjectName) {
         String regex = "^[a-zA-Z][a-zA-Z ]*$";
         return InputValidator.validate_regex(regex, subjectName);
     }
@@ -16,7 +16,7 @@ public class InputValidator {
     /**
      * 2. Subject-code: It must be 6-7 Alphanumeric characters. The first 3 are Alphabetic followed by 3 numeric characters. The sevens should be s if exists.
      */
-    public static boolean isSubjectCodeValid(String subjectCode) {
+    public boolean isSubjectCodeValid(String subjectCode) {
         String regex = "^[a-zA-Z]{3}[0-9]{3}s?$";
         return InputValidator.validate_regex(regex, subjectCode);
     }
@@ -24,7 +24,7 @@ public class InputValidator {
     /**
      * 3. Full mark: It is a numeric number of the value: 100
      */
-    static boolean isFullMarkValid(String fullMark) {
+    public boolean isFullMarkValid(String fullMark) {
         return fullMark.equals("100");
     }
 
@@ -118,7 +118,7 @@ public class InputValidator {
         return true;
     }
 
-    public static boolean validateSubject(String name, String code, String fullMark) throws IllegalArgumentException {
+    public  boolean validateSubject(String name, String code, String fullMark) throws IllegalArgumentException {
         if (!isSubjectNameValid(name)) {
             throw new IllegalArgumentException("Invalid subject name got " + name + " expected alphabetic characters and spaces");
         }
