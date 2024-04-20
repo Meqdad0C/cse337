@@ -32,7 +32,7 @@ public class Main {
         }
         // Writing new content to an output file
         try {
-            String output_file = args[0];
+            String output_file = args[1];
             FileWriter fileWriter = new FileWriter(output_file);
             fileWriter.write_file_lines(output);
         } catch (IOException e) {
