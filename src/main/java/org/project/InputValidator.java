@@ -9,9 +9,6 @@ public class InputValidator {
      * 1. Subject name: It must be Alphabetic characters and Spaces. the name should not start with space
      */
     public boolean isSubjectNameValid(String subjectName) {
-        if (studentName == null) {
-            return false;
-        }
         String regex = "^[a-zA-Z][a-zA-Z ]*$";
         return InputValidator.validate_regex(regex, subjectName);
     }
