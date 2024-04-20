@@ -1,4 +1,4 @@
-package Labs.LabFiveTests;
+package org.labs;
 
 import org.labs.Five.MakeCoffee;
 import org.junit.jupiter.api.BeforeAll;

@@ -1,4 +1,4 @@
-package Labs;
+package org.labs;
 
 import static org.mockito.Mockito.*;
 

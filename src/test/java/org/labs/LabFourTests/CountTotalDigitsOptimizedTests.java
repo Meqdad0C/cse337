@@ -1,4 +1,4 @@
-package Labs.LabFourTests;
+package org.labs.LabFourTests;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,4 +1,4 @@
-package Labs.LabFourTests;
+package org.labs.LabFourTests;
 
 import org.labs.Four.CountTotalDigits;
 import org.junit.jupiter.api.Assertions;

@@ -1,9 +1,8 @@
-package project;
+package org.project;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.project.GpaHelper;
-import org.project.Grade;
+
 
 public class GpaHelperTest {
 
