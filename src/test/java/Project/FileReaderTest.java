@@ -1,4 +1,4 @@
-package Project;
+package project;
 
 import org.junit.jupiter.api.Test;
 import org.project.FileReader;
