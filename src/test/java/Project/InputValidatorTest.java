@@ -696,4 +696,63 @@ public class InputValidatorTest {
         boolean actual = in_validator.isOralPracticalMarkValid(input);
         assertFalse(actual);
     }
+    @Test
+    public void isStudentNameValid_test_validNameWithAlphabetsOnly() {
+        InputValidator in_validator =new InputValidator();
+        Assertions.assertTrue(in_validator.isStudentNameValid("Abdalla"));
+    }
+
+    @Test
+    public void isStudentNameValid_test_validNameWithAlphabetsAndSpaces() {
+        InputValidator in_validator =new InputValidator();
+        Assertions.assertTrue(in_validator.isStudentNameValid("Abdalla Ibrahim"));
+    }
+
+    @Test
+    public void isStudentNameValid_test_nameStartsWithSpace() {
+        InputValidator in_validator =new InputValidator();
+        Assertions.assertFalse(in_validator.isStudentNameValid(" Abdalla Ibrahim"));
+    }
+
+    @Test
+    public void isStudentNameValid_test_nameContainsNumbers() {
+        InputValidator in_validator =new InputValidator();
+        Assertions.assertFalse(in_validator.isStudentNameValid("Abdalla123"));
+    }
+
+    @Test
+    public void isStudentNameValid_test_nameContainsSpecialCharacters() {
+        InputValidator in_validator =new InputValidator();
+        Assertions.assertFalse(in_validator.isStudentNameValid("Abdalla-Ibrahim"));
+    }
+
+    @Test
+    public void isStudentNameValid_test_emptyName() {
+        InputValidator in_validator =new InputValidator();
+        Assertions.assertFalse(in_validator.isStudentNameValid(""));
+    }
+
+    @Test
+    public void isStudentNameValid_test_nullName() {
+        InputValidator in_validator =new InputValidator();
+        Assertions.assertFalse(in_validator.isStudentNameValid(null));
+    }
+
+    @Test
+    public void isStudentNameValid_test_singleCharacterName() {
+        InputValidator in_validator =new InputValidator();
+        Assertions.assertTrue(in_validator.isStudentNameValid("A"));
+    }
+
+    @Test
+    public void isStudentNameValid_test_nameWithSpacesBetween() {
+        InputValidator in_validator =new InputValidator();
+        Assertions.assertTrue(in_validator.isStudentNameValid("Abdalla Ibrahim Abdalla"));
+    }
+
+    @Test
+    public void isStudentNameValid_test_nameWithLongValidName() {
+        InputValidator in_validator =new InputValidator();
+        Assertions.assertTrue(in_validator.isStudentNameValid("John Jacob Jingleheimer Schmidt"));
+    }
 }
