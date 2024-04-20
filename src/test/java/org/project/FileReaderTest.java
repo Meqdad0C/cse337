@@ -1,7 +1,6 @@
-package project;
+package org.project;
 
 import org.junit.jupiter.api.Test;
-import org.project.FileReader;
 
 import java.io.IOException;
 import java.nio.file.Files;
