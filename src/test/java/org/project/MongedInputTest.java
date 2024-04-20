@@ -1,11 +1,5 @@
-package Project;
+package org.project;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.project.InputValidator;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 /*this file is integrated with InputValidatorTest*/
 public class MongedInputTest {

@@ -1,11 +1,6 @@
-package Project;
+package org.project;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.project.InputParser;
-import org.project.InputValidator;
-import org.project.Student;
-import org.project.Subject;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 public class InputParserTest {
