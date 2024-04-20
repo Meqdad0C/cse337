@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets; // For StandardCharsets.UTF_8
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class mainTest {
+public class MainTest {
     private String captureOutput(Runnable task) {
         PrintStream originalOut = System.out;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
