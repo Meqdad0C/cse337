@@ -96,7 +96,7 @@ public class InputValidator {
         }
     }
 
-    boolean validateStudent(String name, String id, String activity_mark, String oral_mark, String midterm_mark, String final_mark) throws IllegalArgumentException {
+    public boolean validateStudent(String name, String id, String activity_mark, String oral_mark, String midterm_mark, String final_mark) throws IllegalArgumentException {
         if (!isStudentNameValid(name)) {
             throw new IllegalArgumentException("Invalid student name got " + name + " expected alphabetic characters and spaces");
         }
@@ -118,7 +118,7 @@ public class InputValidator {
         return true;
     }
 
-    public static boolean validateSubject(String name, String code, String fullMark) throws IllegalArgumentException {
+    public  boolean validateSubject(String name, String code, String fullMark) throws IllegalArgumentException {
         if (!isSubjectNameValid(name)) {
             throw new IllegalArgumentException("Invalid subject name got " + name + " expected alphabetic characters and spaces");
         }

@@ -1,4 +1,5 @@
 package org.project;
+import java.util.Objects;
 
 public class Student {
     String name;
@@ -57,6 +58,25 @@ public class Student {
 
 //         return 0;
      }
+
+
+     /*
+     this function is added
+        When you call assertEquals(expected, actual) in JUnit, the assertEquals method internally invokes the equals()
+        method of the Student class to compare the content of the two objects (expected and actual).
+      */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Student student = (Student) obj;
+        return Objects.equals(name, student.name) &&
+                Objects.equals(id, student.id) &&
+                Objects.equals(activity_mark, student.activity_mark) &&
+                Objects.equals(oral_mark, student.oral_mark) &&
+                Objects.equals(midterm_mark, student.midterm_mark) &&
+                Objects.equals(final_mark, student.final_mark);
+    }
 
 //    public static void main (String[] args){
 //        String name = "Abdelmagid";
