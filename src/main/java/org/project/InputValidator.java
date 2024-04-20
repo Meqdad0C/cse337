@@ -31,7 +31,10 @@ public class InputValidator {
     /**
      * 4. Student name: It must be Alphabetic characters and Spaces. the name should not start with space.
      */
-    static boolean isStudentNameValid(String studentName) {
+    public boolean isStudentNameValid(String studentName) {
+        if (studentName == null) {
+            return false;
+        }
         String regex = "^[a-zA-Z][a-zA-Z ]*$";
         return InputValidator.validate_regex(regex, studentName);
     }
