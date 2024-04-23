@@ -1,29 +1,17 @@
 package org.labs.Five;
-
 import java.util.Scanner;
 
+
 public class MakeCoffee {
-    static CoffeeMachine cm;
-    static Scanner scan;
+    CoffeeMachine cm;
+    Scanner scan;
 
-
-
-    public static void main(String[] args) {
-        scan = new Scanner(System.in);
-        System.out.println("\nWants to Start Mechine Y or N ?");
-        char d;
-        d = scan.next().charAt(0);
-        if (d == 'Y' || d == 'y') {
-            cm = new CoffeeMachine();     //Instances For CoffeMachine
-            start();     //In order to call All Private Method Calling Public mathod
-            System.out.println("Shutting Down...\n");
-        } else
-            System.out.println("Shutting Down...\n");
+    public MakeCoffee(CoffeeMachine cm, Scanner scan){
+        this.cm = cm;
+        this.scan = scan;
     }
 
-
-
-    public static void start(){    //public Start to accese all private method of this class
+    public  void start(){    //public Start to accese all private method of this class
         System.out.println(" ----------------------------------------------------------------");
         System.out.println("|                   Coffee Machine By Manikant                   |");
         System.out.println(" ----------------------------------------------------------------");
@@ -62,7 +50,7 @@ public class MakeCoffee {
         }
     }
 
-    static void makeCoffee(){  //Coffee Selection Menu
+     void makeCoffee(){  //Coffee Selection Menu
         System.out.println("\n ------------------ ");
         System.out.println("|   Select Type:   |\n ------------------ \n| 1:  Black Coffee |\n| 2:  Milk Coffee  |\n| 0   to Discard   |");
         System.out.println(" ------------------ \n");
