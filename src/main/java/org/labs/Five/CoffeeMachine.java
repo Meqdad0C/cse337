@@ -1,6 +1,6 @@
 package org.labs.Five;
 
-class CoffeeMachine{
+public class CoffeeMachine{
 
     private double coffee_powder, milk, water;
     private int Coffee_Count = 0;
@@ -9,7 +9,7 @@ class CoffeeMachine{
         this.milk=0;
         this.water=0;
     }
-    void SetIngredient(){   //Calling for Filling Ingredient...
+    public void SetIngredient(){   //Calling for Filling Ingredient...
         System.out.println("\nFilling...");
         this.coffee_powder = 500.0;
         this.milk = 1;
