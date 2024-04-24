@@ -16,7 +16,7 @@ public class CoffeeMachine{
         this.water= 2;
         System.out.println("Filling Completed.");
     }
-     void GetIngredient(){   //To Get Status
+     public void GetIngredient(){   //To Get Status
         System.out.println("Available Coffee Power(Gram) "+String.format("%.1f",this.coffee_powder));
         System.out.println("Available Milk(Liter) "+String.format("%.1f", this.milk));
         System.out.println("Available Water(Liter) "+String.format("%.1f", this.water));

@@ -1,20 +1,20 @@
-package org.labs.Five;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.labs.Five.CoffeeMachine;
-import org.labs.Five.MakeCoffee;
+package org.labs.Five.Top_Down;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.util.Scanner;
+        import org.junit.jupiter.api.BeforeEach;
+        import org.junit.jupiter.api.Test;
+        import org.junit.jupiter.api.AfterEach;
+        import org.labs.Five.CoffeeMachine;
+        import org.labs.Five.MakeCoffee;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.spy;
+        import static org.junit.jupiter.api.Assertions.*;
+        import static org.mockito.Mockito.*;
+
+        import java.io.ByteArrayInputStream;
+        import java.io.ByteArrayOutputStream;
+        import java.io.PrintStream;
+        import java.io.InputStream;
+        import java.util.Scanner;
 
 class MakeCoffeeTest {
 
@@ -27,7 +27,7 @@ class MakeCoffeeTest {
     @BeforeEach
     public void setUp() {
         System.setOut(new PrintStream(outContent));
-        coffeeMachine = new CoffeeMachine();
+        coffeeMachine =spy(CoffeeMachine.class);
         coffeeMachine.SetIngredient(); // Fill the ingredients initially
     }
 
@@ -36,6 +36,12 @@ class MakeCoffeeTest {
         String input = "1\n6\n"; // Option 1 then exit
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         makeCoffee = new MakeCoffee(coffeeMachine, new Scanner(System.in));
+        doAnswer(invocation -> {
+            System.out.println("Available Coffee Power(Gram)");
+            System.out.println("Available Milk(Liter)");
+            System.out.println("Available Water(Liter)");
+            return null;
+        }).when(coffeeMachine).GetIngredient();
         makeCoffee.start();
 
         assertTrue(outContent.toString().contains("Available Coffee Power(Gram)"));
@@ -53,6 +59,11 @@ class MakeCoffeeTest {
         String input = "2\n1\n6\n"; // Fill then check status and exit
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         makeCoffee = new MakeCoffee(coffeeMachine, new Scanner(System.in));
+        doAnswer(invocation -> {
+            System.out.println("Filling Completed.");
+            System.out.println("500.0");
+            return null;
+        }).when(coffeeMachine).SetIngredient();
         makeCoffee.start();
 
         assertTrue(outContent.toString().contains("Filling Completed."));
@@ -66,6 +77,7 @@ class MakeCoffeeTest {
         String input = "5\n6\n"; // Option to check how many coffees have been made then exit
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         makeCoffee = new MakeCoffee(coffeeMachine, new Scanner(System.in));
+
         makeCoffee.start();
 
         assertTrue(outContent.toString().contains("We Have Made 5 Coffees."));

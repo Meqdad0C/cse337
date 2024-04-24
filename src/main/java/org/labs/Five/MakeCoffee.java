@@ -11,6 +11,10 @@ public class MakeCoffee {
         this.scan = scan;
     }
 
+    public MakeCoffee() {
+
+    }
+
     public  void start(){    //public Start to accese all private method of this class
         System.out.println(" ----------------------------------------------------------------");
         System.out.println("|                   Coffee Machine By Manikant                   |");
@@ -50,7 +54,7 @@ public class MakeCoffee {
         }
     }
 
-     void makeCoffee(){  //Coffee Selection Menu
+     public void makeCoffee(){  //Coffee Selection Menu
         System.out.println("\n ------------------ ");
         System.out.println("|   Select Type:   |\n ------------------ \n| 1:  Black Coffee |\n| 2:  Milk Coffee  |\n| 0   to Discard   |");
         System.out.println(" ------------------ \n");
