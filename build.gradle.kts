@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    jacoco
 }
 
 group = "org.sw.testing"
@@ -25,4 +26,5 @@ tasks.jar {
 
 tasks.test {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
 }
