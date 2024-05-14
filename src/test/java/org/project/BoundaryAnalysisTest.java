@@ -124,8 +124,8 @@ public class BoundaryAnalysisTest {
     }
     @Test
     void getGradeTest_C_PLUS_Boundary() {
-        String actual = GpaHelper.getGrade(71);
-        String expected = "C";
+        String actual = GpaHelper.getGrade(74);
+        String expected = "C+";
         Assertions.assertEquals(expected, actual, "Error in getGrade method");
     }
     @Test
