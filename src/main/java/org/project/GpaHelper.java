@@ -50,9 +50,4 @@ public class GpaHelper {
         return gradeEntry.get().getValue().toString();
 
     }
-
-    public static void main(String[] args) {
-        System.out.println(GpaHelper.getGPA(Grade.A_PLUS));
-        System.out.println(GpaHelper.getGrade(100));
-    }
 }
