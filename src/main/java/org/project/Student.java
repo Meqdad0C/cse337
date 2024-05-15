@@ -76,15 +76,4 @@ public class Student {
                 Objects.equals(midterm_mark, student.midterm_mark) &&
                 Objects.equals(final_mark, student.final_mark);
     }
-
-//    public static void main (String[] args){
-//        String name = "Abdelmagid";
-//        String id =  "1111";
-//        String activity_mark = "10";
-//        String oral_mark = "10";
-//        String midterm_mark = "10";
-//        String final_mark = "35";
-//        Student st= new Student(name,id,activity_mark,oral_mark,midterm_mark,final_mark);
-//        double gpa = st.GPA();
-//    }
 }
