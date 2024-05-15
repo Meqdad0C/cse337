@@ -276,4 +276,22 @@ public class GpaHelperTest {
         String expected = "A+";
         Assertions.assertEquals(expected, actual, "Error in getGrade method");
     }
+
+    @Test
+    public void testGetGradeWithInvalidMarkBelowRange_exception() {
+        // Test with a mark below the valid range
+        int totalMark = -1;
+        assertThrows(IllegalArgumentException.class, () -> {
+            GpaHelper.getGrade(totalMark);
+        }, "Expected getGrade to throw, but it didn't");
+    }
+
+    @Test
+    public void testGetGradeWithInvalidMarkAboveRange_exception() {
+        // Test with a mark above the valid range
+        int totalMark = 101;
+        assertThrows(IllegalArgumentException.class, () -> {
+            GpaHelper.getGrade(totalMark);
+        }, "Expected getGrade to throw, but it didn't");
+    }
 }
