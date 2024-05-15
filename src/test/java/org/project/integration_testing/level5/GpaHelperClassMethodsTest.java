@@ -282,4 +282,73 @@ public class GpaHelperClassMethodsTest {
         String expected = "A+";
         Assertions.assertEquals(expected, actual, "Error in getGrade method");
     }
+    //extra test cases added while black box testing using BVA
+    @Test
+    void getGradeTest_D_Boundary() {
+        String actual = GpaHelper.getGrade(61);
+        String expected = "D";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
+
+    @Test
+    void getGradeTest_D_PLUS_Boundary() {
+        String actual = GpaHelper.getGrade(65);
+        String expected = "D+";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
+    @Test
+    void getGradeTest_C_MINUS_Boundary() {
+        String actual = GpaHelper.getGrade(68);
+        String expected = "C-";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
+
+    @Test
+    void getGradeTest_C_Boundary() {
+        String actual = GpaHelper.getGrade(71);
+        String expected = "C";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
+    @Test
+    void getGradeTest_C_PLUS_Boundary() {
+        String actual = GpaHelper.getGrade(74);
+        String expected = "C+";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
+    @Test
+    void getGradeTest_B_MINUS_Boundary() {
+        String actual = GpaHelper.getGrade(77);
+        String expected = "B-";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
+    @Test
+    void getGradeTest_B_Boundary() {
+        String actual = GpaHelper.getGrade(81);
+        String expected = "B";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
+    @Test
+    void getGradeTest_B_PLUS_Boundary() {
+        String actual = GpaHelper.getGrade(85);
+        String expected = "B+";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
+    @Test
+    void getGradeTest_A_MINUS_Boundary() {
+        String actual = GpaHelper.getGrade(90);
+        String expected = "A-";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
+    @Test
+    void getGradeTest_A_Boundary() {
+        String actual = GpaHelper.getGrade(94);
+        String expected = "A";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
+    @Test
+    void getGradeTest_A_PLUS_Boundary() {
+        String actual = GpaHelper.getGrade(98);
+        String expected = "A+";
+        Assertions.assertEquals(expected, actual, "Error in getGrade method");
+    }
 }

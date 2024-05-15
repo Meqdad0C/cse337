@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.project.InputValidator;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
 
 
 public class InputValidatorClassMethodsTest {
@@ -23,7 +25,7 @@ public class InputValidatorClassMethodsTest {
     }
 
     @Test
-    void isFinalExamMarkValid_validMark_maxValue(){
+    void isFinalExamMarkValid_validMark_boundaryValue(){
         InputValidator in_validator = new InputValidator();
         int input = 60;
         boolean actual = in_validator.isFinalExamMarkValid(String.valueOf(input));
@@ -31,7 +33,7 @@ public class InputValidatorClassMethodsTest {
     }
 
     @Test
-    void isFinalExamMarkValid_validMark_minValue(){
+    void isFinalExamMarkValid_validMark_boundaryValue2(){
         InputValidator in_validator = new InputValidator();
         int input = 0;
         boolean actual = in_validator.isFinalExamMarkValid(String.valueOf(input));
@@ -76,6 +78,30 @@ public class InputValidatorClassMethodsTest {
         String input = "mo";
         boolean actual = in_validator.isFinalExamMarkValid(input);
         assertFalse(actual);
+    }
+    //extra test cases added while black box testing using BVA
+    @Test
+    void isFinalExamMarkValid_validMark_maxValue(){
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
+        int min =0;
+        int max =60;
+        int input = 1;
+        when(spyValidator.validate_range(min,max,input)).thenReturn(true );
+        boolean actual = spyValidator.isFinalExamMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+
+    @Test
+    void isFinalExamMarkValid_validMark_minValue(){
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
+        int min =0;
+        int max =60;
+        int input = 59;
+        when(spyValidator.validate_range(min,max,input)).thenReturn(true );
+        boolean actual = spyValidator.isFinalExamMarkValid(String.valueOf(input));
+        assertTrue(actual);
     }
 
 
@@ -144,6 +170,25 @@ public class InputValidatorClassMethodsTest {
         boolean actual = in_validator.isMidtermExamMarkValid(input);
         assertFalse(actual);
     }
+    //extra test cases added while black box testing using BVA
+    @Test
+    void isMidtermExamMarkValid_validMark_boundaryValue(){
+        InputValidator in_validator = new InputValidator();
+        InputValidator spyValidator = spy(in_validator);
+        int input = 19;
+        boolean actual = in_validator.isMidtermExamMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+
+    @Test
+    void isMidtermExamMarkValid_validMark_boundaryValue2(){
+        InputValidator in_validator = new InputValidator();
+        int input = 1;
+        boolean actual = in_validator.isMidtermExamMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+
+
 
     /*          isOralPracticalMarkValid          */
     @Test
@@ -210,7 +255,7 @@ public class InputValidatorClassMethodsTest {
         assertFalse(actual);
     }
 
-    //extra test cases but not needed for integration
+    //extra test cases added while black box testing using BVA
     @Test
     void isOralPracticalMarkValid_InvalidMark_negativeBigNumber() {
         InputValidator in_validator = new InputValidator();
@@ -263,6 +308,22 @@ public class InputValidatorClassMethodsTest {
     void isOralPracticalMarkValid_ValidMark_inRange() {
         InputValidator in_validator = new InputValidator();
         int input = 5;
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+    //extra test cases added while black box testing using BVA
+    @Test
+    void isOralPracticalMarkValid_ValidMark_positiveBoundary() {
+        InputValidator in_validator = new InputValidator();
+        int input = 1;
+        boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+
+    @Test
+    void isOralPracticalMarkValid_ValidMark_positiveBoundary2() {
+        InputValidator in_validator = new InputValidator();
+        int input = 9;
         boolean actual = in_validator.isOralPracticalMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
@@ -333,7 +394,23 @@ public class InputValidatorClassMethodsTest {
         boolean actual = in_validator.isStudentActivitiesMarkValid(input);
         assertFalse(actual);
     }
-    //extra test cases but not needed for integration
+    //extra test cases added while black box testing using BVA
+    @Test
+    void isStudentActivitiesMarkValid_validMark_positiveNumberBoundary() {
+        InputValidator in_validator = new InputValidator();
+        int input = 9;
+        boolean actual = in_validator.isStudentActivitiesMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+
+    @Test
+    void isStudentActivitiesMarkValid_ValidMark_positiveNumberBoundary2() {
+        InputValidator in_validator = new InputValidator();
+        int input = 1;
+        boolean actual = in_validator.isStudentActivitiesMarkValid(String.valueOf(input));
+        assertTrue(actual);
+    }
+    //extra test cases added while black box testing using BVA
     @Test
     void isStudentActivitiesMarkValid_InvalidMark_negativeBigNumber() {
         InputValidator in_validator = new InputValidator();
@@ -509,6 +586,13 @@ public class InputValidatorClassMethodsTest {
         InputValidator in_validator = new InputValidator();
         assertTrue(in_validator.isStudentNameValid("John Jacob Jingleheimer Schmidt"));
     }
+    //extra test cases added while black box testing using equivalence class partitioning
+    @Test
+    public void isStudentNameValid_test_nameNumbersOnly() {
+        InputValidator in_validator = new InputValidator();
+        assertFalse(in_validator.isStudentNameValid("2"));
+    }
+
 
 
 
