@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.project.InputValidator;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.when;
 
 
 public class InputValidatorClassMethodsTest {
@@ -83,24 +81,16 @@ public class InputValidatorClassMethodsTest {
     @Test
     void isFinalExamMarkValid_validMark_maxValue(){
         InputValidator in_validator = new InputValidator();
-        InputValidator spyValidator = spy(in_validator);
-        int min =0;
-        int max =60;
         int input = 1;
-        when(spyValidator.validate_range(min,max,input)).thenReturn(true );
-        boolean actual = spyValidator.isFinalExamMarkValid(String.valueOf(input));
+        boolean actual = in_validator.isFinalExamMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
 
     @Test
     void isFinalExamMarkValid_validMark_minValue(){
         InputValidator in_validator = new InputValidator();
-        InputValidator spyValidator = spy(in_validator);
-        int min =0;
-        int max =60;
         int input = 59;
-        when(spyValidator.validate_range(min,max,input)).thenReturn(true );
-        boolean actual = spyValidator.isFinalExamMarkValid(String.valueOf(input));
+        boolean actual = in_validator.isFinalExamMarkValid(String.valueOf(input));
         assertTrue(actual);
     }
 
@@ -174,7 +164,6 @@ public class InputValidatorClassMethodsTest {
     @Test
     void isMidtermExamMarkValid_validMark_boundaryValue(){
         InputValidator in_validator = new InputValidator();
-        InputValidator spyValidator = spy(in_validator);
         int input = 19;
         boolean actual = in_validator.isMidtermExamMarkValid(String.valueOf(input));
         assertTrue(actual);
@@ -361,14 +350,6 @@ public class InputValidatorClassMethodsTest {
         int input = 11;
         boolean actual = in_validator.isStudentActivitiesMarkValid(String.valueOf(input));
         assertFalse(actual);
-    }
-
-    @Test
-    void isStudentActivitiesMarkValid_ValidMark_Zero_NoMock() {
-        InputValidator in_validator = new InputValidator();
-        int input = 0;
-        boolean actual = in_validator.isStudentActivitiesMarkValid(String.valueOf(input));
-        assertTrue(actual);
     }
 
     @Test
