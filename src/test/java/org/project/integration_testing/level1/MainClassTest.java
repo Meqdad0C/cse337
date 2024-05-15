@@ -54,16 +54,19 @@ public class MainClassTest {
         // Prepare the environment
         String inputPath = ".\\src\\main\\resources\\sw-testing.csv";
         String outputPath = ".\\src\\main\\resources\\output.csv";
-        String expectedPath = ".\\src\\main\\resources\\expected.csv";
+
         Main.main(new String[] { inputPath, outputPath });
 
-        byte[] fileExpectedBytes = Files.readAllBytes(Paths.get(expectedPath));
         byte[] fileOutputBytes = Files.readAllBytes(Paths.get(outputPath));
-
-        String file1 = new String(fileExpectedBytes, StandardCharsets.UTF_8);
         String file2 = new String(fileOutputBytes, StandardCharsets.UTF_8);
 
-        assertEquals(file1, file2, "The content should match");
+        String expected = """
+                Subject: Software Testing\tMax Mark: 100
+                Student name\tStudent number\tGPA\tGrade
+                Meqdad Amr Shawky\t19016640\t2.0\tC
+                Youssef Salah\t19001900\t4.0\tA+
+                """;
+        assertEquals(expected, file2, "The content should match");
     }
 
     @Test
