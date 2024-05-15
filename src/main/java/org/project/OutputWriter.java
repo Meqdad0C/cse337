@@ -1,13 +1,13 @@
 package org.project;
 
 public class OutputWriter {
-    static String writeSubject(Subject subject) {
+    public static String writeSubject(Subject subject) {
         String string = "Subject: " + subject.name() + '\t' +
                 "Max Mark: " + subject.fullMark() + '\n';
         return string;
     }
 
-    static String writeStudentHeader() {
+    public static String writeStudentHeader() {
         String string = "Student name" + '\t' +
                 "Student number" + '\t' +
                 "GPA" + '\t' +
@@ -15,7 +15,7 @@ public class OutputWriter {
         return string;
     }
 
-    static String writeStudent(Student student) {
+    public static String writeStudent(Student student) {
         String string = student.getName() + '\t' +
                 student.getId() + '\t' +
                 student.GPA() + '\t' +
