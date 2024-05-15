@@ -71,4 +71,10 @@ public class MainTest {
         String[] args = { ".\\src\\main\\resources\\malformed.csv", ".\\src\\main\\resources\\output.csv" };
         assertThrows(Exception.class, () -> Main.main(args));
     }
+
+    @Test
+    public void testMainWithNonExistentPathThrowsException() {
+        String[] args = { ".\\src\\main\\resources\\nonexistent.csv", ".\\src\\main\\resources\\output.csv" };
+        assertThrows(Exception.class, () -> Main.main(args));
+    }
 }
